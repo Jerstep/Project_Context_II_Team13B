@@ -1,6 +1,4 @@
-﻿
-
-[System.Serializable]
+﻿[System.Serializable]
 public class Net_CreateAccount : NetMsg
 {
     public Net_CreateAccount()

@@ -3,29 +3,23 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-public class Client : MonoBehaviour
+public class Server : MonoBehaviour
 {
-    public static Client Instance { private set; get; }
-
-
     private const int MAX_USER = 100;
     private const int PORT = 26000;
     private const int WEB_PORT = 26001;
     private const int BYTE_SIZE = 1024;
 
-    private const string SERVER_IP = "127.0.0.1";
-
     private byte reliableChannel;
-    private int connectionId;
     private int hostID;
-    private byte error;
+    private int webHostID;
 
     private bool isStarted = false;
+    private byte error;
 
     #region Monobehaviour
     private void Start()
     {
-        Instance = this;
         DontDestroyOnLoad(gameObject);
         Init();
     }
@@ -44,20 +38,12 @@ public class Client : MonoBehaviour
 
         HostTopology topo = new HostTopology(cc, MAX_USER);
 
-        // Client Only
-        hostID = NetworkTransport.AddHost(topo, 0);
 
+        // Server Only
+        hostID =  NetworkTransport.AddHost(topo, PORT, null);
+        webHostID = NetworkTransport.AddWebsocketHost(topo, WEB_PORT, null);
 
-#if UNITY_WEBGL && !UNITY_EDITOR
-        // Web Client
-        connectionId = NetworkTransport.Connect(hostID, SERVER_IP, WEB_PORT, 0, out error);
-        Debug.Log("Connecting from Web");
-#else
-        // Standalone Client
-        connectionId = NetworkTransport.Connect(hostID, SERVER_IP, PORT, 0, out error);
-        Debug.Log("Connecting from Standalone");
-#endif
-        Debug.Log(string.Format("Attempting to connect on {0}...", SERVER_IP));
+        Debug.Log(string.Format("Opening connection on port {0} and webport {1}", PORT, WEB_PORT));
         isStarted = true;
     }
     private void Shutdown()
@@ -82,15 +68,15 @@ public class Client : MonoBehaviour
         switch(type)
         {
             case NetworkEventType.Nothing:
-            break;
+                break;
 
             case NetworkEventType.ConnectEvent:
-            Debug.Log("We have connected to the server");
-            break;
+                Debug.Log(string.Format("User {0} had connected has  connected  to  host {1}!", connectionId, recHostId));
+                break;
 
             case NetworkEventType.DisconnectEvent:
-            Debug.Log("We have been disconected");
-            break;
+                Debug.Log(string.Format("User {0} had disconeced!", connectionId));
+                break;
 
             case NetworkEventType.DataEvent:
             BinaryFormatter formatter = new BinaryFormatter();
@@ -102,8 +88,8 @@ public class Client : MonoBehaviour
 
             default:
             case NetworkEventType.BroadcastEvent:
-            Debug.Log("Unexxpected network event type");
-            break;
+                Debug.Log("Unexxpected network event type");
+                break;
         }
     }
 
@@ -114,13 +100,32 @@ public class Client : MonoBehaviour
         {
             case NetOperationCode.None:
             Debug.Log("unexpected NetOP");
-            break;
+                break;
+
+            case NetOperationCode.CreateAccount:
+                CreateAccount(cnnId, channelId, recHosteId, (Net_CreateAccount)msg);
+                break;
+
+            case NetOperationCode.LoginRequest:
+                LoginRequest(cnnId, channelId, recHosteId, (Net_LoginRequest)msg);
+                break;
         }
+    }
+
+    private void CreateAccount(int cnnId, int channelId, int recHosteId, Net_CreateAccount ca)
+    {
+
+        Debug.Log(string.Format("{0},{1},{2}", ca.Username, ca.Password, ca.Email));
+    }
+
+    private void LoginRequest(int cnnId, int channelId, int recHosteId, Net_LoginRequest lr)
+    {
+        Debug.Log(string.Format("{0},{1}", lr.UsernameOrEmail, lr.Password));
     }
     #endregion
 
     #region Send
-    public void SendServer(NetMsg msg)
+    public void SendClient(int recHost, int cnnId, NetMsg msg)
     {
         // This is where we hold our data
         byte[] buffer = new byte[BYTE_SIZE];
@@ -130,30 +135,10 @@ public class Client : MonoBehaviour
         MemoryStream ms = new MemoryStream(buffer);
         formatter.Serialize(ms, msg);
 
-        NetworkTransport.Send(hostID, connectionId, reliableChannel, buffer, BYTE_SIZE, out error);
-    }
-
-    public void SendCreateAccount(string username, string password, string email)
-    {
-        Net_CreateAccount ca = new Net_CreateAccount();
-
-        ca.Username = username;
-        ca.Password = password;
-        ca.Email = email;
-
-        SendServer(ca);
-    }
-
-    public void SendLoginRequest(string usernameOrEmail, string password)
-    {
-        Net_LoginRequest lr = new Net_LoginRequest();
-
-        lr.UsernameOrEmail = usernameOrEmail;
-        lr.Password = password;
-
-        SendServer(lr);
+        if(recHost == 0)
+            NetworkTransport.Send(hostID, cnnId, reliableChannel, buffer, BYTE_SIZE, out error);
+        else
+            NetworkTransport.Send(webHostID, cnnId, reliableChannel, buffer, BYTE_SIZE, out error);
     }
     #endregion
-
-
 }
