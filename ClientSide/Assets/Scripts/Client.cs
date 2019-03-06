@@ -1,5 +1,7 @@
 ﻿using UnityEngine.Networking;
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class Client : MonoBehaviour {
 
@@ -11,6 +13,7 @@ public class Client : MonoBehaviour {
     private const string SERVER_IP = "127.0.0.1";
 
     private byte reliableChannel;
+    private int connectionId;
     private int hostID;
     private byte error;
 
@@ -43,17 +46,16 @@ public class Client : MonoBehaviour {
 
 #if UNITY_WEBGL && !UNITY_EDITOR
         // Web Client
-        NetworkTransport.Connect(hostID, SERVER_IP, WEB_PORT, 0, out error);
+        connectionId = NetworkTransport.Connect(hostID, SERVER_IP, WEB_PORT, 0, out error);
         Debug.Log("Connecting from Web");
 #else
         // Standalone Client
-        NetworkTransport.Connect(hostID, SERVER_IP, PORT, 0, out error);
+        connectionId = NetworkTransport.Connect(hostID, SERVER_IP, PORT, 0, out error);
         Debug.Log("Connecting from Standalone");
 #endif
         Debug.Log(string.Format("Attempting to connect on {0}...", SERVER_IP));
         isStarted = true;
     }
-
     private void Shutdown()
     {
         isStarted = false;
@@ -87,7 +89,11 @@ public class Client : MonoBehaviour {
             break;
 
             case NetworkEventType.DataEvent:
-            Debug.Log("Data");
+            BinaryFormatter formatter = new BinaryFormatter();
+            MemoryStream ms = new MemoryStream(recBuffer);
+            NetMsg msg = (NetMsg)formatter.Deserialize(ms);
+
+            OnData(connectionId, channelId, recHostId, msg);
             break;
 
             default:
@@ -95,5 +101,44 @@ public class Client : MonoBehaviour {
             Debug.Log("Unexxpected network event type");
             break;
         }
+    }
+
+    #region OnData
+    private void OnData(int cnnId, int channelId, int recHosteId, NetMsg msg)
+    {
+        switch(msg.OperationCode)
+        {
+            case NetOperationCode.None:
+            Debug.Log("unexpected NetOP");
+            break;
+        }
+    }
+    #endregion
+
+    #region Send
+    public void SendServer(NetMsg msg)
+    {
+        // This is where we hold our data
+        byte[] buffer = new byte[BYTE_SIZE];
+
+        // This is where you would cruch your data into a byte []
+        BinaryFormatter formatter = new BinaryFormatter();
+        MemoryStream ms = new MemoryStream(buffer);
+        formatter.Serialize(ms, msg);
+
+        NetworkTransport.Send(hostID, connectionId, reliableChannel, buffer, BYTE_SIZE, out error);
+    }
+    #endregion
+
+    // Delete when build
+    public void TESTFUNCTIONCREATEACCOUNT()
+    {
+        Net_CreateAccount ca = new Net_CreateAccount();
+
+        ca.Username = "Big Chungus";
+        ca.Password = "YeahBoiiiiii";
+        ca.Email = "IsYaBoi@hotmail.com";
+
+        SendServer(ca);
     }
 }

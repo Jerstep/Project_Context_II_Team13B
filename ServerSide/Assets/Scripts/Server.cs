@@ -1,5 +1,7 @@
 ﻿using UnityEngine.Networking;
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class Server : MonoBehaviour
 {
@@ -77,8 +79,12 @@ public class Server : MonoBehaviour
                 break;
 
             case NetworkEventType.DataEvent:
-                Debug.Log("Data");
-                break;
+            BinaryFormatter formatter = new BinaryFormatter();
+            MemoryStream ms = new MemoryStream(recBuffer);
+            NetMsg msg = (NetMsg)formatter.Deserialize(ms);
+
+            OnData(connectionId, channelId, recHostId, msg);
+            break;
 
             default:
             case NetworkEventType.BroadcastEvent:
@@ -86,4 +92,44 @@ public class Server : MonoBehaviour
                 break;
         }
     }
+
+    #region OnData
+    private void OnData(int cnnId, int channelId, int recHosteId, NetMsg msg)
+    {
+        switch(msg.OperationCode)
+        {
+            case NetOperationCode.None:
+            Debug.Log("unexpected NetOP");
+                break;
+
+            case NetOperationCode.CreateAccount:
+                CreateAccount(cnnId, channelId, recHosteId, (Net_CreateAccount)msg);
+                break;
+        }
+    }
+
+    private void CreateAccount(int cnnId, int channelId, int recHosteId, Net_CreateAccount ca)
+    {
+
+        Debug.Log(string.Format("{0},{1},{2}", ca.Username, ca.Password, ca.Email));
+    }
+    #endregion
+
+    #region Send
+    public void SendClient(int recHost, int cnnId, NetMsg msg)
+    {
+        // This is where we hold our data
+        byte[] buffer = new byte[BYTE_SIZE];
+
+        // This is where you would cruch your data into a byte []
+        BinaryFormatter formatter = new BinaryFormatter();
+        MemoryStream ms = new MemoryStream(buffer);
+        formatter.Serialize(ms, msg);
+
+        if(recHost == 0)
+            NetworkTransport.Send(hostID, cnnId, reliableChannel, buffer, BYTE_SIZE, out error);
+        else
+            NetworkTransport.Send(webHostID, cnnId, reliableChannel, buffer, BYTE_SIZE, out error);
+    }
+    #endregion
 }
