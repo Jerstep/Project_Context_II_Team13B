@@ -6,6 +6,6 @@ public class Net_LoginRequest: NetMsg
         OperationCode = NetOperationCode.LoginRequest;
     }
 
-    public string UsernameOrEmail { get; set; }
-    public string Password { get; set; }
+    public string UsernameOrEmail { set; get; }
+    public string Password { set; get; }
 }

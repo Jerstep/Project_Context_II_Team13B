@@ -17,6 +17,8 @@ public class Server : MonoBehaviour
     private bool isStarted = false;
     private byte error;
 
+    private Database db;
+
     #region Monobehaviour
     private void Start()
     {
@@ -31,6 +33,9 @@ public class Server : MonoBehaviour
 
     private void Init()
     {
+        db = new Database();
+        db.Init();
+
         NetworkTransport.Init();
 
         ConnectionConfig cc = new ConnectionConfig();
@@ -45,6 +50,9 @@ public class Server : MonoBehaviour
 
         Debug.Log(string.Format("Opening connection on port {0} and webport {1}", PORT, WEB_PORT));
         isStarted = true;
+
+        // $$ TEST
+        db.InsertAccount("Bambooz", "Super", "Blush");
     }
     private void Shutdown()
     {
@@ -114,13 +122,27 @@ public class Server : MonoBehaviour
 
     private void CreateAccount(int cnnId, int channelId, int recHosteId, Net_CreateAccount ca)
     {
-
         Debug.Log(string.Format("{0},{1},{2}", ca.Username, ca.Password, ca.Email));
+
+        Net_OnCreateAccount oca = new Net_OnCreateAccount();
+        oca.Success = 0;
+        oca.Information = "Account was created :)";
+
+        SendClient(recHosteId, cnnId, oca);
     }
 
     private void LoginRequest(int cnnId, int channelId, int recHosteId, Net_LoginRequest lr)
     {
         Debug.Log(string.Format("{0},{1}", lr.UsernameOrEmail, lr.Password));
+
+        Net_OnLoginRequest olr = new Net_OnLoginRequest();
+        olr.Success = 0;
+        olr.Information = "Everything is good";
+        olr.Username = "n3rkmind";
+        olr.Discriminator = "0000";
+        olr.Token = "Token";
+
+        SendClient(recHosteId, cnnId, olr);
     }
     #endregion
 

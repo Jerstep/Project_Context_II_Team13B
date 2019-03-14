@@ -4,6 +4,9 @@
 
     public const int CreateAccount = 1;
     public const int LoginRequest = 2;
+
+    public const int OnCreateAccount = 3;
+    public const int OnLoginRequest = 4;
 }
 
 [System.Serializable]
