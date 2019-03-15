@@ -504,8 +504,8 @@ GameObject:
   - component: {fileID: 384901679}
   - component: {fileID: 384901678}
   m_Layer: 5
-  m_Name: Char3
-  m_TagString: Untagged
+  m_Name: Duck
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -524,10 +524,10 @@ RectTransform:
   m_Father: {fileID: 1243245609}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1525, y: -265}
-  m_SizeDelta: {x: 450, y: 450}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384901678
 MonoBehaviour:
@@ -567,7 +567,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 384901679}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1243245613}
+        m_MethodName: DuckSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &384901679
@@ -1236,8 +1247,8 @@ GameObject:
   - component: {fileID: 914511422}
   - component: {fileID: 914511421}
   m_Layer: 5
-  m_Name: Char4
-  m_TagString: Untagged
+  m_Name: Human
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1256,10 +1267,10 @@ RectTransform:
   m_Father: {fileID: 1243245609}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 425, y: -815}
-  m_SizeDelta: {x: 450, y: 450}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &914511421
 MonoBehaviour:
@@ -1299,7 +1310,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 914511422}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1243245613}
+        m_MethodName: HumanSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &914511422
@@ -1336,6 +1358,66 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 914511419}
   m_CullTransparentMesh: 0
+--- !u!1 &928794060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928794063}
+  - component: {fileID: 928794062}
+  - component: {fileID: 928794061}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &928794061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928794060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ccc1141d0ea4348b6b55f6edcaae8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &928794062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928794060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179a1ce79a4db87438f02c7dd739240d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charIndex: 
+  characters:
+  - {fileID: 1788837261642840, guid: 9da8d4fb0a4567f4b88db3b0ae68f668, type: 2}
+  - {fileID: 1579684528103996, guid: 5679fb619cf5ccf489cd0ded947de08f, type: 2}
+  - {fileID: 1565075700693260, guid: 68a64f5cce8eb014ea46963956a8e489, type: 2}
+  - {fileID: 1498028218347028, guid: 458c8c3c9b88ead49b1afd60586ef010, type: 2}
+  - {fileID: 1508685407165182, guid: d992ed0432684724087f693ce350b123, type: 2}
+  - {fileID: 1915860108300566, guid: 828b14808942bce48b35a336ec11f764, type: 2}
+--- !u!4 &928794063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928794060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 135.41913, y: 69.75779, z: -0.26368713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &957980420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,8 +1647,8 @@ GameObject:
   - component: {fileID: 1057895797}
   - component: {fileID: 1057895796}
   m_Layer: 5
-  m_Name: Char1
-  m_TagString: Untagged
+  m_Name: Shark
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1585,10 +1667,10 @@ RectTransform:
   m_Father: {fileID: 1243245609}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 425, y: -265}
-  m_SizeDelta: {x: 450, y: 450}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057895796
 MonoBehaviour:
@@ -1628,7 +1710,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1057895797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1243245613}
+        m_MethodName: SharkSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1057895797
@@ -1884,8 +1977,8 @@ GameObject:
   - component: {fileID: 1144432342}
   - component: {fileID: 1144432341}
   m_Layer: 5
-  m_Name: Char5
-  m_TagString: Untagged
+  m_Name: Lion
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1904,10 +1997,10 @@ RectTransform:
   m_Father: {fileID: 1243245609}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 975, y: -815}
-  m_SizeDelta: {x: 450, y: 450}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1144432341
 MonoBehaviour:
@@ -1947,7 +2040,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1144432342}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1243245613}
+        m_MethodName: LionSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1144432342
@@ -1996,8 +2100,8 @@ GameObject:
   - component: {fileID: 1215163963}
   - component: {fileID: 1215163962}
   m_Layer: 5
-  m_Name: Char2
-  m_TagString: Untagged
+  m_Name: Bee
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2016,10 +2120,10 @@ RectTransform:
   m_Father: {fileID: 1243245609}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 975, y: -265}
-  m_SizeDelta: {x: 450, y: 450}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1215163962
 MonoBehaviour:
@@ -2059,7 +2163,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1215163963}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1243245613}
+        m_MethodName: BeeSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1215163963
@@ -2107,13 +2222,14 @@ GameObject:
   - component: {fileID: 1243245612}
   - component: {fileID: 1243245611}
   - component: {fileID: 1243245610}
+  - component: {fileID: 1243245613}
   m_Layer: 5
   m_Name: CharacterSelection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1243245609
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2195,6 +2311,28 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1243245608}
   m_CullTransparentMesh: 0
+--- !u!114 &1243245613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1243245608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0fc7172a71ea4449c28bac40db0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charChosenColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  charFreeColor: {r: 1, g: 1, b: 1, a: 1}
+  characters: []
+  playerManager: {fileID: 928794062}
+  buttonColor:
+  - {fileID: 1057895797}
+  - {fileID: 1215163963}
+  - {fileID: 384901679}
+  - {fileID: 914511422}
+  - {fileID: 1144432342}
+  - {fileID: 1733231377}
 --- !u!1 &1258229072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,8 +2798,8 @@ GameObject:
   - component: {fileID: 1733231377}
   - component: {fileID: 1733231376}
   m_Layer: 5
-  m_Name: Char6
-  m_TagString: Untagged
+  m_Name: Monkey
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2680,10 +2818,10 @@ RectTransform:
   m_Father: {fileID: 1243245609}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1525, y: -815}
-  m_SizeDelta: {x: 450, y: 450}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733231376
 MonoBehaviour:
@@ -2723,7 +2861,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1733231377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1243245613}
+        m_MethodName: MonkeySelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1733231377
