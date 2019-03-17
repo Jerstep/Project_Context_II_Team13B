@@ -27,13 +27,13 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   mode:
     overrideState: 1
-    value: 1
+    value: 0
   intensity:
     overrideState: 1
-    value: 1.6
+    value: 0.46
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -57,7 +57,7 @@ MonoBehaviour:
     value: 0
   radius:
     overrideState: 1
-    value: 0.18
+    value: 0.34
   quality:
     overrideState: 1
     value: 3
