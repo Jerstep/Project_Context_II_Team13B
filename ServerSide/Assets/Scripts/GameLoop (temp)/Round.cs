@@ -25,12 +25,14 @@ public class Round : MonoBehaviour
         }
     }
 
-	void Start () {
+	void Start ()
+    {
 	    	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 }
