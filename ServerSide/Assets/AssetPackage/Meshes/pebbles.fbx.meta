@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 2f1d975df845b9d4cb3d1174af24a8e1
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: lambert4.001
+    2100002: Material.005
+    2100004: Material.006
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pebbles
+    7400000: pebbles|pCube1|pCube1|pCube1Action|pCube1|pCube1Action
+    7400002: pebbles|pCube1|pCube1|pCube2Action|pCube1|pCube2Action
+    7400004: pebbles|pCube1|pCube1|pCube8Action|pCube1|pCube8Action
+    7400006: pebbles|pCube1|pCube1|polySurface6Action|pCube1|polySurface6Action
+    7400008: pebbles|pCube1|pCube1|pSphere1Action|pCube1|pSphere1Action
+    7400010: pebbles|pCube1|pCube1|pSphere2Action|pCube1|pSphere2Action
+    7400012: pebbles|pCube1|pCube1|pSphere3Action|pCube1|pSphere3Action
+    7400014: pebbles|pCube1|pCube1|pSphere4Action|pCube1|pSphere4Action
+    7400016: pebbles|pCube2|pCube2|pCube1Action|pCube2|pCube1Action
+    7400018: pebbles|pCube2|pCube2|pCube2Action|pCube2|pCube2Action
+    7400020: pebbles|pCube2|pCube2|pCube8Action|pCube2|pCube8Action
+    7400022: pebbles|pCube2|pCube2|polySurface6Action|pCube2|polySurface6Action
+    7400024: pebbles|pCube2|pCube2|pSphere1Action|pCube2|pSphere1Action
+    7400026: pebbles|pCube2|pCube2|pSphere2Action|pCube2|pSphere2Action
+    7400028: pebbles|pCube2|pCube2|pSphere3Action|pCube2|pSphere3Action
+    7400030: pebbles|pCube2|pCube2|pSphere4Action|pCube2|pSphere4Action
+    7400032: pebbles|pCube8|pCube8|pCube1Action|pCube8|pCube1Action
+    7400034: pebbles|pCube8|pCube8|pCube2Action|pCube8|pCube2Action
+    7400036: pebbles|pCube8|pCube8|pCube8Action|pCube8|pCube8Action
+    7400038: pebbles|pCube8|pCube8|polySurface6Action|pCube8|polySurface6Action
+    7400040: pebbles|pCube8|pCube8|pSphere1Action|pCube8|pSphere1Action
+    7400042: pebbles|pCube8|pCube8|pSphere2Action|pCube8|pSphere2Action
+    7400044: pebbles|pCube8|pCube8|pSphere3Action|pCube8|pSphere3Action
+    7400046: pebbles|pCube8|pCube8|pSphere4Action|pCube8|pSphere4Action
+    7400048: pebbles|polySurface6|polySurface6|pCube1Action|polySurface6|pCube1Actio
+    7400050: pebbles|polySurface6|polySurface6|pCube2Action|polySurface6|pCube2Actio
+    7400052: pebbles|polySurface6|polySurface6|pCube8Action|polySurface6|pCube8Actio
+    7400054: pebbles|polySurface6|polySurface6|polySurface6Action|polySurface6|polyS
+    7400056: pebbles|polySurface6|polySurface6|pSphere1Action|polySurface6|pSphere1A
+    7400058: pebbles|polySurface6|polySurface6|pSphere2Action|polySurface6|pSphere2A
+    7400060: pebbles|polySurface6|polySurface6|pSphere3Action|polySurface6|pSphere3A
+    7400062: pebbles|polySurface6|polySurface6|pSphere4Action|polySurface6|pSphere4A
+    7400064: pebbles|pSphere1|pSphere1|pCube1Action|pSphere1|pCube1Action
+    7400066: pebbles|pSphere1|pSphere1|pCube2Action|pSphere1|pCube2Action
+    7400068: pebbles|pSphere1|pSphere1|pCube8Action|pSphere1|pCube8Action
+    7400070: pebbles|pSphere1|pSphere1|polySurface6Action|pSphere1|polySurface6Actio
+    7400072: pebbles|pSphere1|pSphere1|pSphere1Action|pSphere1|pSphere1Action
+    7400074: pebbles|pSphere1|pSphere1|pSphere2Action|pSphere1|pSphere2Action
+    7400076: pebbles|pSphere1|pSphere1|pSphere3Action|pSphere1|pSphere3Action
+    7400078: pebbles|pSphere1|pSphere1|pSphere4Action|pSphere1|pSphere4Action
+    7400080: pebbles|pSphere2|pSphere2|pCube1Action|pSphere2|pCube1Action
+    7400082: pebbles|pSphere2|pSphere2|pCube2Action|pSphere2|pCube2Action
+    7400084: pebbles|pSphere2|pSphere2|pCube8Action|pSphere2|pCube8Action
+    7400086: pebbles|pSphere2|pSphere2|polySurface6Action|pSphere2|polySurface6Actio
+    7400088: pebbles|pSphere2|pSphere2|pSphere1Action|pSphere2|pSphere1Action
+    7400090: pebbles|pSphere2|pSphere2|pSphere2Action|pSphere2|pSphere2Action
+    7400092: pebbles|pSphere2|pSphere2|pSphere3Action|pSphere2|pSphere3Action
+    7400094: pebbles|pSphere2|pSphere2|pSphere4Action|pSphere2|pSphere4Action
+    7400096: pebbles|pSphere3|pSphere3|pCube1Action|pSphere3|pCube1Action
+    7400098: pebbles|pSphere3|pSphere3|pCube2Action|pSphere3|pCube2Action
+    7400100: pebbles|pSphere3|pSphere3|pCube8Action|pSphere3|pCube8Action
+    7400102: pebbles|pSphere3|pSphere3|polySurface6Action|pSphere3|polySurface6Actio
+    7400104: pebbles|pSphere3|pSphere3|pSphere1Action|pSphere3|pSphere1Action
+    7400106: pebbles|pSphere3|pSphere3|pSphere2Action|pSphere3|pSphere2Action
+    7400108: pebbles|pSphere3|pSphere3|pSphere3Action|pSphere3|pSphere3Action
+    7400110: pebbles|pSphere3|pSphere3|pSphere4Action|pSphere3|pSphere4Action
+    7400112: pebbles|pSphere4|pSphere4|pCube1Action|pSphere4|pCube1Action
+    7400114: pebbles|pSphere4|pSphere4|pCube2Action|pSphere4|pCube2Action
+    7400116: pebbles|pSphere4|pSphere4|pCube8Action|pSphere4|pCube8Action
+    7400118: pebbles|pSphere4|pSphere4|polySurface6Action|pSphere4|polySurface6Actio
+    7400120: pebbles|pSphere4|pSphere4|pSphere1Action|pSphere4|pSphere1Action
+    7400122: pebbles|pSphere4|pSphere4|pSphere2Action|pSphere4|pSphere2Action
+    7400124: pebbles|pSphere4|pSphere4|pSphere3Action|pSphere4|pSphere3Action
+    7400126: pebbles|pSphere4|pSphere4|pSphere4Action|pSphere4|pSphere4Action
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
