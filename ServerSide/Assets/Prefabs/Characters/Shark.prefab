@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4547673562722366}
   - component: {fileID: 114589414085688904}
+  - component: {fileID: 195991644942854070}
   m_Layer: 0
   m_Name: Shark
   m_TagString: Untagged
@@ -70,6 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4129122676716256}
+  - component: {fileID: 114638781269641162}
   - component: {fileID: 33881761772797252}
   - component: {fileID: 23904109437969994}
   m_Layer: 0
@@ -312,8 +314,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fdbf3f6383b7b418c2a12b63214375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 195991644942854070}
   isChairman: 0
   text: {fileID: 114269960960328952}
+  score: 0
+--- !u!114 &114638781269641162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1652715034961592}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c8825d081b79a4980c0bdf61887eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.89
+      outSlope: -1.89
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20833331
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!195 &195991644942854070
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621582724458038}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!222 &222067654316105906
 CanvasRenderer:
   m_ObjectHideFlags: 1

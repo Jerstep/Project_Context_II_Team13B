@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Location : MonoBehaviour
 {
-    [SerializeField] private string name;
-    [SerializeField] private Transform[] spawnLocations;
+    [SerializeField] private string locationName;
     [SerializeField] private Transform cameraLocation;
+    [SerializeField] private Transform[] spawnLocations;
     [SerializeField] private Transform[] targetLocations;
 
-    public Round round;
+    //public Statement[] statements;
 
-    public bool beenChosen = false;
+    public bool isActive = false;
 
     public string GetName()
     {
         //name = this.gameObject.name;
-        return name;
+        return locationName;
     }
 
     public Vector3[] GetSpawnPosition()

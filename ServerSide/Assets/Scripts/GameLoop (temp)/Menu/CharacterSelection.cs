@@ -30,7 +30,6 @@ public class CharacterSelection : MonoBehaviour
 
     // Make every player click comfirm after choosing
 
-
     void Start ()
     {
 
@@ -46,7 +45,7 @@ public class CharacterSelection : MonoBehaviour
         {
             buttonColor[colorIndex].color = charFreeColor;
         }
-        playerManager.charIndexUpdate();            
+        //playerManager.charIndexUpdate();            
     }
 
     private void AddToCharIndex(int _charIndex)

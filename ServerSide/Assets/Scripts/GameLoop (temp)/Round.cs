@@ -5,34 +5,64 @@ using TMPro;
 
 public class Round : MonoBehaviour
 {
-    public int waitTime;
-    public string statementTitle;
-    public string[] statements;
+    public GameObject UI_Title;
+    public GameObject UI_Statement;
+    public GameObject UI_TimeIsUp;
 
-    public GameObject choiseUIMenu;
-    public GameObject choiseUIChoisePanel;
+    public bool roundActive = false;
+    
+    public float roundTime;
+    public float timeIsUpTime;
+    public Statement statement;
 
-    private void CreateChoiseUI()
+    public void CurrentStatement(Statement statement)
     {
-        GameObject choiseMenu =  Instantiate(choiseUIMenu);
-        for(int i = 0; i < statements.Length; i++)
-        {
-            GameObject choisePanel = Instantiate(choiseUIChoisePanel);
-            choisePanel.transform.parent = choiseMenu.transform;
+        roundActive = true;
 
-            TMP_Text choiseText = choisePanel.GetComponent<TMP_Text>();
-            choiseText.text = statements[i];
+        if(statement.title != "")
+        {
+            // Sets the title of the type of round
+            UI_Title.GetComponentInChildren<TMP_Text>().text = statement.title;
+        }
+        else
+        {
+            UI_Title.SetActive(false);
+        }
+
+        // Sets the statement/question to the one given in the function call.
+        UI_Statement.GetComponentInChildren<TMP_Text>().text = statement.statementText;
+
+        roundTime = statement.timeToDiscuss;
+        statement.hasBeenChosen = true;
+    }
+
+    private void Update()
+    {
+        if(roundActive)
+        {
+            RoundTimer();
         }
     }
 
-	void Start ()
+    private void RoundTimer()
     {
-	    	
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        roundTime -= Time.deltaTime;
+        int time =  Mathf.RoundToInt(roundTime);
+        Debug.Log(time );
+        
+        if (roundTime < 0)
+        {
+            roundActive = false;
+            StartCoroutine("TimeIsUp");
+        }
+    }
+
+    IEnumerator TimeIsUp()
     {
-		
-	}
+        UI_Statement.SetActive(false);
+        UI_TimeIsUp.SetActive(true);
+        yield return new WaitForSeconds(timeIsUpTime);
+        UI_Statement.SetActive(true);
+        UI_TimeIsUp.SetActive(false);
+    }
 }

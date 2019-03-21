@@ -12,15 +12,22 @@ public class PlayerManager : MonoBehaviour
     public List<GameObject> players;
 
     private static PlayerManager manager;
+    public PlayerDestinations playerDes;
 
-	void Start () {
+    public MoveCamera cam;
+
+    void Start () {
         //manager = this;
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);        
 	}
 
     private void OnLevelWasLoaded()
     {
+        cam = GameObject.Find("MainCamera").GetComponent<MoveCamera>();
+
         SpawnPlayerCharacters spawnPlayers = GameObject.Find("GameManager").GetComponent<SpawnPlayerCharacters>();
+        playerDes = GameObject.Find("GameManager").GetComponent<PlayerDestinations>();
+
         for(int i = 0; i < charIndex.Count; i++)
         {
             for(int e = 0; e < characters.Length; e++)
@@ -34,22 +41,23 @@ public class PlayerManager : MonoBehaviour
             if(spawnPlayers.spawnIndex == charIndex.Count)
             {
                 players = spawnPlayers.characters;
+                playerDes.characters = players;
+                cam.players = players;
             }
         }
     }
 
-
     // DEBUG TEST CHAR LIST!!
-    public void charIndexUpdate()
-    {
-        for(int i = 0; i < charIndex.Count; i++)
-        {
-            Debug.Log("Character Index in list: " + charIndex[i]);
-        }
+    //public void charIndexUpdate()
+    //{
+    //    for(int i = 0; i < charIndex.Count; i++)
+    //    {
+    //        Debug.Log("Character Index in list: " + charIndex[i]);
+    //    }
 
-        if(charIndex.Count == 0)
-        {
-            Debug.Log("Empty");
-        }
-    }
+    //    if(charIndex.Count == 0)
+    //    {
+    //        Debug.Log("Empty");
+    //    }
+    //}
 }

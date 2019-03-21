@@ -2,18 +2,22 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
+    public NavMeshAgent agent;
+
     public bool isChairman = false;
     private string charName;
     public TMP_Text text;
+    public int score = 0;
 
     private void Start()
     {
         charName = text.text;
-        Debug.Log(text);
         SetChairman("Chariman");
+        agent = this.GetComponent<NavMeshAgent>();
     }
 
     public void SetChairman(string chairman)
@@ -28,4 +32,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void SetDestinationForAgent(Vector3 target)
+    {
+        agent.updatePosition = false;
+        agent.SetDestination(target);
+        agent.updatePosition = true;
+    }
 }

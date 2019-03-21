@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4402488367121454}
   - component: {fileID: 114886959027127248}
+  - component: {fileID: 195185477698430424}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Untagged
@@ -52,6 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4474554532030308}
+  - component: {fileID: 114179138952491234}
   - component: {fileID: 33574870621286640}
   - component: {fileID: 23848847457091170}
   m_Layer: 0
@@ -170,6 +172,41 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114179138952491234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1513625353920976}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c8825d081b79a4980c0bdf61887eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.89
+      outSlope: -1.89
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20833331
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114349661472093748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,8 +347,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fdbf3f6383b7b418c2a12b63214375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 195185477698430424}
   isChairman: 0
   text: {fileID: 114349661472093748}
+  score: 0
+--- !u!195 &195185477698430424
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1157903125613368}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!222 &222870998520671644
 CanvasRenderer:
   m_ObjectHideFlags: 1

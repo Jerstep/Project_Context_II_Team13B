@@ -37,6 +37,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4549178005324236}
+  - component: {fileID: 114176646303294774}
   - component: {fileID: 33765911290758116}
   - component: {fileID: 23283005964716462}
   m_Layer: 0
@@ -72,6 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4030155770077724}
   - component: {fileID: 114142626990444040}
+  - component: {fileID: 195099289920443756}
   m_Layer: 0
   m_Name: Bee
   m_TagString: Untagged
@@ -166,8 +168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fdbf3f6383b7b418c2a12b63214375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 195099289920443756}
   isChairman: 0
   text: {fileID: 114862432215358272}
+  score: 0
 --- !u!114 &114146767649350954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,6 +188,41 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114176646303294774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1513441353175588}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c8825d081b79a4980c0bdf61887eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.89
+      outSlope: -1.89
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20833331
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114573075931601496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -318,6 +357,27 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!195 &195099289920443756
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902773882953416}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!222 &222353307382950734
 CanvasRenderer:
   m_ObjectHideFlags: 1

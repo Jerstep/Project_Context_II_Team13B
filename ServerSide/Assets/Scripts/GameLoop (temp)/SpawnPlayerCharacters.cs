@@ -5,7 +5,10 @@ using UnityEngine;
 public class SpawnPlayerCharacters : MonoBehaviour
 {
     public Transform[] spawnLocations;
+
     public List<GameObject> characters;
+    public GameObject charHolder;
+
     public int spawnIndex;
 
     public void SpawnCharacters(GameObject character)
@@ -17,6 +20,6 @@ public class SpawnPlayerCharacters : MonoBehaviour
         {
             spawnIndex++;
         }
-        Debug.Log("Instantiated char: " + Char.name);
+        //Debug.Log("Instantiated char: " + Char.name);
     }
 }
