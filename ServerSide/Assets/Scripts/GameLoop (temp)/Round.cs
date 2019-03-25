@@ -1,13 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+
 
 public class Round : MonoBehaviour
 {
     public GameObject UI_Title;
     public GameObject UI_Statement;
     public GameObject UI_TimeIsUp;
+
+    public TimerScript timerScript;
+    public GameObject timer;
+    public Image timeBar;
 
     public bool roundActive = false;
     
@@ -46,16 +52,16 @@ public class Round : MonoBehaviour
 
     private void RoundTimer()
     {
-        roundTime -= Time.deltaTime;
-        int time =  Mathf.RoundToInt(roundTime);
-        Debug.Log(time );
-        
-        if (roundTime < 0)
+        timerScript.RoundStart(roundTime, timeBar);
+        Debug.Log(timerScript.CheckRunning());
+        if (!timerScript.CheckRunning())
         {
+            timerScript.RoundOver(UI_TimeIsUp, timeIsUpTime);
             roundActive = false;
-            StartCoroutine("TimeIsUp");
         }
     }
+
+    // Still needs an indicator for the time ( a shrinking bar )
 
     IEnumerator TimeIsUp()
     {

@@ -55,7 +55,7 @@ public class WindowManager : MonoBehaviour {
     {
         if(round.roundActive)
         {
-            StartCoroutine("TimeBeforeRoundOver");
+            StartCoroutine(TimeBeforeRoundOver());
         }
     }
 
@@ -71,7 +71,7 @@ public class WindowManager : MonoBehaviour {
 
     public void OnLocation1Button()
     {
-        StartCoroutine("waitBeforeOpenWindow", statementWindow1);
+        StartCoroutine(waitBeforeOpenWindow(statementWindow1));
         statements = statementWindow1.GetComponent<Statements>();
 
         statementWindow2.SetActive(false);
@@ -86,7 +86,7 @@ public class WindowManager : MonoBehaviour {
 
     public void OnLocation2Button()
     {
-        StartCoroutine("waitBeforeOpenWindow", statementWindow2);
+        StartCoroutine(waitBeforeOpenWindow(statementWindow2));
         statements = statementWindow2.GetComponent<Statements>();
 
         statementWindow1.SetActive(false);

@@ -6,6 +6,7 @@ public class MenuButtons : MonoBehaviour
 {
     public GameObject charSelectMenu;
     public GameObject mainMenu;
+
     bool mainMenuActive = true;
     bool CharMenuActive = false;
 
@@ -15,8 +16,6 @@ public class MenuButtons : MonoBehaviour
         CharMenuActive = !CharMenuActive;
         charSelectMenu.SetActive(CharMenuActive);
         mainMenu.SetActive(mainMenuActive);
-        Debug.Log("Bool MainMenu state: " + mainMenuActive);
-        Debug.Log("Bool CharMenu state: " + CharMenuActive);
     }
 
     public void OptionsButton()

@@ -13,12 +13,10 @@ public class PlayerDestinations : MonoBehaviour {
     {
         if(characters != null)
         {
-            Debug.Log("Assigned: ");
             for(int i = 0; i < characters.Count; i++)
             {
                 //characters[i].GetComponent<Player>().SetDestinationForAgent(arrival[i]);
                 characters[i].GetComponent<Player>().transform.position = arrival[i];
-                Debug.Log("Assigned: " + arrival[i]);
             }
         }
     }

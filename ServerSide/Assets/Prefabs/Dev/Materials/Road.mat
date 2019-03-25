@@ -84,7 +84,7 @@ Material:
     - _RimIntensity: 0.032
     - _RimSize: 1.5
     - _RimSmoothness: 0.498
-    - _ShadowIntensity: 0.852
+    - _ShadowIntensity: 0.172
     - _Shininess: 0.2
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

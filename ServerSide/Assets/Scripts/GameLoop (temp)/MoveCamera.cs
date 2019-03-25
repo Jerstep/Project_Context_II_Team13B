@@ -14,7 +14,7 @@ public class MoveCamera : MonoBehaviour
         startPos = this.transform.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         SetCameraPos();
     }
@@ -31,7 +31,6 @@ public class MoveCamera : MonoBehaviour
                 continue; //skip, since player is deleted
             }
             middle += players[i].transform.position;
-            Debug.Log(middle);  
             numPlayers++;
         }//end for every player
 
