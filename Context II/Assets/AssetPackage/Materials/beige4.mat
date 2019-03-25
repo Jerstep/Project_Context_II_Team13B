@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: green2
+  m_Name: beige4
   m_Shader: {fileID: 4800000, guid: 9c6ece3d5ef8bb84db19471daaf6c788, type: 3}
   m_ShaderKeywords: _MK_ALBEDO_MAP _MK_BUMP_MAP _MK_LIGHTMODEL_LAMBERT _MK_LIGHTTYPE_CEL_SHADE_SIMPLE
     _MODE_OPAQUE _NORMALMAP
@@ -64,7 +64,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DetailTex: 1
+    - _DetailTex: 0
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0
@@ -103,10 +103,10 @@ Material:
     - _VertexColor: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.43137255, g: 0.49803922, b: 0.15294118, a: 1}
+    - _Color: {r: 0.9056604, g: 0.69942164, b: 0.5339979, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0.34947097, g: 0.41509432, b: 0.09202562, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0.5}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 0.5}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 0.5}
