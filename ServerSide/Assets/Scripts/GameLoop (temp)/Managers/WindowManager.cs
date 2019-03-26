@@ -41,6 +41,8 @@ public class WindowManager : MonoBehaviour {
     public PlayerDestinations playerDes;
 
     public int transitionTime;
+    private bool roundActive = false;
+    private bool inputGiven = false;
 
     //bool statementOpen;
     //bool locationOpen;
@@ -56,6 +58,12 @@ public class WindowManager : MonoBehaviour {
         if(round.roundActive)
         {
             StartCoroutine(TimeBeforeRoundOver());
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            locationWindow.SetActive(true);
+            inputGiven = true;
         }
     }
 
@@ -107,7 +115,7 @@ public class WindowManager : MonoBehaviour {
         statements.buttons[buttonClickedIndex].SetActive(false);
 
         roundWindow.SetActive(true);
-
+        roundActive = true;
         statementWindow1.SetActive(false);
         statementWindow2.SetActive(false);
         locationWindow.SetActive(false);
@@ -129,7 +137,21 @@ public class WindowManager : MonoBehaviour {
     {
         float waitTime = round.roundTime + round.timeIsUpTime;
         yield return new WaitForSeconds(waitTime);
-        roundWindow.SetActive(false);
-        locationWindow.SetActive(true);
+        //StartCoroutine(AfterRound());
     }
+
+    //IEnumerator AfterRound()
+    //{
+    //    bool inputGiven = false;
+    //    while(!inputGiven)
+    //    {
+    //        Debug.Log("Waiting for input");
+    //        if(Input.GetKeyDown(KeyCode.Space))
+    //        {
+    //            locationWindow.SetActive(true);
+    //            inputGiven = true;
+    //        }
+    //        yield return null;
+    //    }
+    //}
 }

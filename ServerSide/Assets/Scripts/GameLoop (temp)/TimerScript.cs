@@ -18,14 +18,9 @@ public class TimerScript : MonoBehaviour
         StartCoroutine(TimeIsUp(timeIsUp, roundOver));
     }
 
-    public bool CheckRunning()
-    {
-        return timerRunning;
-    }
-
     IEnumerator StartTimer(float maxTime, float time, Image timeBar)
     {
-        Debug.Log(timerRunning);
+        Debug.Log("Timer Active = " + timerRunning);
         if(time > 0)
         {
             timerRunning = true;
@@ -38,7 +33,7 @@ public class TimerScript : MonoBehaviour
 
             if(time < 0)
             {
-                Debug.Log(time);    
+                Debug.Log(Mathf.RoundToInt(time));    
                 timerRunning = false;
             }
             yield return null;
@@ -47,6 +42,23 @@ public class TimerScript : MonoBehaviour
 
     IEnumerator TimeIsUp(GameObject timeIsUp, float roundOver)
     {
+        timeIsUp.SetActive(true);
         yield return new WaitForSeconds(roundOver);
+        StartCoroutine(AfterRound(timeIsUp));
+    }
+
+    IEnumerator AfterRound(GameObject timeIsUp)
+    {
+        bool inputGiven = false;
+        while(!inputGiven)
+        {
+            Debug.Log("Waiting for input");
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                timeIsUp.SetActive(false);
+                inputGiven = true;
+            }
+            yield return null;
+        }
     }
 }

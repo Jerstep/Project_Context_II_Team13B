@@ -52,23 +52,27 @@ public class Round : MonoBehaviour
 
     private void RoundTimer()
     {
+        timer.SetActive(true);
         timerScript.RoundStart(roundTime, timeBar);
-        Debug.Log(timerScript.CheckRunning());
-        if (!timerScript.CheckRunning())
+        roundTime -= Time.deltaTime;
+
+        if (roundTime < 0)
         {
             timerScript.RoundOver(UI_TimeIsUp, timeIsUpTime);
+            UI_Statement.SetActive(false);
+            timer.SetActive(false);
             roundActive = false;
         }
     }
 
     // Still needs an indicator for the time ( a shrinking bar )
 
-    IEnumerator TimeIsUp()
-    {
-        UI_Statement.SetActive(false);
-        UI_TimeIsUp.SetActive(true);
-        yield return new WaitForSeconds(timeIsUpTime);
-        UI_Statement.SetActive(true);
-        UI_TimeIsUp.SetActive(false);
-    }
+    //IEnumerator TimeIsUp()
+    //{
+    //    UI_Statement.SetActive(false);
+    //    UI_TimeIsUp.SetActive(true);
+    //    yield return new WaitForSeconds(timeIsUpTime);
+    //    UI_Statement.SetActive(true);
+    //    UI_TimeIsUp.SetActive(false);
+    //}
 }

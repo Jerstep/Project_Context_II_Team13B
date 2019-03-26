@@ -23,20 +23,22 @@ public class MoveCamera : MonoBehaviour
     {
         Vector3 middle = Vector3.zero;
         int numPlayers = 0;
-
-        for(int i = 0; i < players.Count; ++i)
+        if(players.Count != 0)
         {
-            if(players[i] == null)
+            for(int i = 0; i < players.Count; ++i)
             {
-                continue; //skip, since player is deleted
-            }
-            middle += players[i].transform.position;
-            numPlayers++;
-        }//end for every player
+                if(players[i] == null)
+                {
+                    continue; //skip, since player is deleted
+                }
+                middle += players[i].transform.position;
+                numPlayers++;
+            }//end for every player
 
-        //take average:
-        middle /= numPlayers;
-        cam.transform.position = new Vector3(middle.x + startPos.x, transform.position.y, middle.z + startPos.z);
+            //take average:
+            middle /= numPlayers;
+            cam.transform.position = new Vector3(middle.x + startPos.x, transform.position.y, middle.z + startPos.z);
+        }
     }
 
  }

@@ -7,7 +7,6 @@ public class SpawnPlayerCharacters : MonoBehaviour
     public Transform[] spawnLocations;
 
     public List<GameObject> characters;
-    public GameObject charHolder;
 
     public int spawnIndex;
 

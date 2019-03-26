@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Statement : MonoBehaviour
+public class Statement
 {
     public bool hasBeenChosen = false;
     public string title;

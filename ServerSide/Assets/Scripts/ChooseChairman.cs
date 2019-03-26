@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class ChooseChairman : MonoBehaviour
 {
-    void AssignChairman(List<Player> players)
+    int previousIndex;
+
+    public void AssignChairman(List<Player> players)
     {
-        int chairmanIndex = Random.Range(0, players.Count);
-        players[chairmanIndex].isChairman = true;
+        int chairmanIndex = RandomIndex(players.Count, previousIndex);
+        previousIndex = chairmanIndex;
+
+        if(!players[chairmanIndex].isChairman)
+        {
+            players[chairmanIndex].isChairman = true;
+        }
     }
 
-    void UnassignChairman(List<Player> players)
+    public int RandomIndex(int listSize, int prevIndex)
+    {
+        int chairmanIndex = Random.Range(0, listSize);
+        if(chairmanIndex != previousIndex)
+        {
+            return chairmanIndex;
+        }
+        return Random.Range(0, listSize);
+    }
+
+    public void UnassignChairman(List<Player> players)
     {
         for(int i = 0; i < players.Count; i++)
         {

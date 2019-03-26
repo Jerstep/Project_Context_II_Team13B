@@ -5,7 +5,15 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    //private int playerAmount;
+    /* 
+     Index Characters:
+        - Bee = [0]
+        - Duck = [1]
+        - Human = [2]
+        - lion = [3]
+        - Monkey = [4]
+        - Shark = [5]
+    */
 
     public List<int> charIndex;
     public GameObject[] characters;
@@ -13,6 +21,8 @@ public class PlayerManager : MonoBehaviour
 
     private static PlayerManager manager;
     public PlayerDestinations playerDes;
+    public GameMasterScript gameMasterScript;
+    public ScoreManager scoreManager;
 
     public MoveCamera cam;
 
@@ -27,6 +37,9 @@ public class PlayerManager : MonoBehaviour
 
         SpawnPlayerCharacters spawnPlayers = GameObject.Find("GameManager").GetComponent<SpawnPlayerCharacters>();
         playerDes = GameObject.Find("GameManager").GetComponent<PlayerDestinations>();
+        gameMasterScript = GetComponent<GameMasterScript>();
+        gameMasterScript.activePlayerCharacters = charIndex;
+        scoreManager.charIndex = charIndex;
 
         for(int i = 0; i < charIndex.Count; i++)
         {
