@@ -89,14 +89,14 @@ Material:
     - _Outline: 0.01
     - _OutlineSize: 0
     - _Parallax: 0.02
-    - _RimIntensity: 0.033
-    - _RimSize: 1.48
+    - _RimIntensity: 0
+    - _RimSize: 1.5
     - _RimSmoothness: 0.5
-    - _ShadowIntensity: 1.204
-    - _Shininess: 0.012
+    - _ShadowIntensity: 1.37
+    - _Shininess: 0.106
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpecularIntensity: 0.129
+    - _SpecularIntensity: 0
     - _SrcBlend: 1
     - _TintColor: 1
     - _UVSec: 0
