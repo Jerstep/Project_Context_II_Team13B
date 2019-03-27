@@ -64,15 +64,4 @@ public class Round : MonoBehaviour
             roundActive = false;
         }
     }
-
-    // Still needs an indicator for the time ( a shrinking bar )
-
-    //IEnumerator TimeIsUp()
-    //{
-    //    UI_Statement.SetActive(false);
-    //    UI_TimeIsUp.SetActive(true);
-    //    yield return new WaitForSeconds(timeIsUpTime);
-    //    UI_Statement.SetActive(true);
-    //    UI_TimeIsUp.SetActive(false);
-    //}
 }

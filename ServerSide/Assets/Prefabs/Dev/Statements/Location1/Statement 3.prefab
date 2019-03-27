@@ -51,9 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2341d33cb92ff246b292119aa9dc21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBeenChosen: 0
+  hasBeenChosen: 1
   title: 
-  statementText: "Water plants aren\u2019t able to provide oxygen as sunrays don\u2019t
-    shine through muddy water"
-  timeToDiscuss: 2
+  statementText: 'Biodiversity within water creatures is decreasing. Not having diversity
+    is considered good in communist countries though.. '
+  timeToDiscuss: 60
   score: 1

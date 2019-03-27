@@ -51,8 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2341d33cb92ff246b292119aa9dc21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBeenChosen: 0
+  hasBeenChosen: 1
   title: 
-  statementText: Water pollution is increasing
-  timeToDiscuss: 3
+  statementText: 'Water pollution is increasing. Anybody looking for a new job as
+    a cleaner? '
+  timeToDiscuss: 60
   score: 1

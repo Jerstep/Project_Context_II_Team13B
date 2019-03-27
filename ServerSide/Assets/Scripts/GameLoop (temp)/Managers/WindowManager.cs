@@ -3,36 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class WindowManager : MonoBehaviour {
-
-    // Voor easys sake maak gewoon een aantal windows met knoppen voor de locaties.
-    // Geen tijd om super dinamisch te doen
-//__________________________________________________________________________________//
-
-    // Als Location open is: Statements, Round gesloten
-    // Als Statements open is: Location, Round gesloten
-    // Als Round open is: Location, Statements gesloten
-
-    // Reffrences naar BELANGERIJKE scripts/managers
-        // Round
-        // GameManager :: Kan mischien beter een ref hebben naar dit dan andersom
-        // 
-
-    // Window GameObjects :: UI
-        // Locatie window object 
-        // Window voor statement ( die kan wel worden gegenereerd met code )
-            // Met de knop zet je de text van de statement die gekozen word.
-            //  EventSystem.current.currentSelectedGameObject
-
-
-    // Button Management :: UI/Interact
-
+public class WindowManager : MonoBehaviour
+{
     public GameObject canvas;
     public GameObject locationWindow;
     public Location[] locations;
 
     public GameObject statementWindow1;
     public GameObject statementWindow2;
+    public GameObject statementWindow3;
     public Statements statements;
 
     public GameObject roundWindow;
@@ -43,10 +22,6 @@ public class WindowManager : MonoBehaviour {
     public int transitionTime;
     private bool roundActive = false;
     private bool inputGiven = false;
-
-    //bool statementOpen;
-    //bool locationOpen;
-    //bool roundOpen;
 
     private void Start()
     {
@@ -73,18 +48,19 @@ public class WindowManager : MonoBehaviour {
         statementWindow1.SetActive(false);
         statementWindow2.SetActive(false);
         roundWindow.SetActive(false);
-
-        CloseAllExeptSelected();
     }
 
     public void OnLocation1Button()
     {
         StartCoroutine(waitBeforeOpenWindow(statementWindow1));
         statements = statementWindow1.GetComponent<Statements>();
+        round.CurrentStatement(statements.ChooseRandomStatement());
 
         statementWindow2.SetActive(false);
-        roundWindow.SetActive(false);
+        statementWindow3.SetActive(false);
         locationWindow.SetActive(false);
+        roundWindow.SetActive(true);
+        roundActive = true;
 
         playerDes.arrival = locations[0].GetSpawnPosition();
         playerDes.destinations = locations[0].GetTargetLocation();
@@ -96,10 +72,13 @@ public class WindowManager : MonoBehaviour {
     {
         StartCoroutine(waitBeforeOpenWindow(statementWindow2));
         statements = statementWindow2.GetComponent<Statements>();
+        round.CurrentStatement(statements.ChooseRandomStatement());
 
         statementWindow1.SetActive(false);
-        roundWindow.SetActive(false);
+        statementWindow3.SetActive(false);
         locationWindow.SetActive(false);
+        roundWindow.SetActive(true);
+        roundActive = true;
 
         playerDes.arrival = locations[1].GetSpawnPosition();
         playerDes.destinations = locations[1].GetTargetLocation();
@@ -107,25 +86,37 @@ public class WindowManager : MonoBehaviour {
         playerDes.AssignPlayerDestination();
     }
 
-    public void SetStatementWindow()
+    public void OnLocation3Button()
     {
-        int buttonClickedIndex = System.Array.IndexOf(statements.buttons, EventSystem.current.currentSelectedGameObject);
-        Statement chosenStatement = statements.statements[buttonClickedIndex];
-        round.CurrentStatement(chosenStatement);
-        statements.buttons[buttonClickedIndex].SetActive(false);
+        StartCoroutine(waitBeforeOpenWindow(statementWindow3));
+        statements = statementWindow3.GetComponent<Statements>();
+        round.CurrentStatement(statements.ChooseRandomStatement());
 
-        roundWindow.SetActive(true);
-        roundActive = true;
         statementWindow1.SetActive(false);
         statementWindow2.SetActive(false);
         locationWindow.SetActive(false);
+        roundWindow.SetActive(true);
+        roundActive = true;
+
+        playerDes.arrival = locations[2].GetSpawnPosition();
+        playerDes.destinations = locations[2].GetTargetLocation();
+        playerDes.AssignPlayerArrival();
+        playerDes.AssignPlayerDestination();
     }
 
-    private void CloseAllExeptSelected()
-    {
+    //public void SetStatementWindow()
+    //{
+    //    int buttonClickedIndex = System.Array.IndexOf(statements.buttons, EventSystem.current.currentSelectedGameObject);
+    //    Statement chosenStatement = statements.statements[buttonClickedIndex];
+    //    round.CurrentStatement(chosenStatement);
+    //    statements.buttons[buttonClickedIndex].SetActive(false);
 
-
-    }
+    //    roundWindow.SetActive(true);
+    //    roundActive = true;
+    //    statementWindow1.SetActive(false);
+    //    statementWindow2.SetActive(false);
+    //    locationWindow.SetActive(false);
+    //}
 
     IEnumerator waitBeforeOpenWindow(GameObject window)
     {

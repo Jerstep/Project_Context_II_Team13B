@@ -54,6 +54,6 @@ MonoBehaviour:
   hasBeenChosen: 0
   title: 
   statementText: 'The percentage of endangered water animals is increasing within
-    50% since last year! '
-  timeToDiscuss: 5
+    50% since last year. Hopefully your friends are not part of this! '
+  timeToDiscuss: 60
   score: 1

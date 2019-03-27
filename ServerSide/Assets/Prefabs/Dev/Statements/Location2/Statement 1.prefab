@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenChosen: 0
   title: 
-  statementText: "Lots of animals who used to live on these trees don\u2019t have
-    a home anymore"
+  statementText: 'Lots of animals who used to live on these trees do not have a home
+    anymore. '
   timeToDiscuss: 3
   score: 1

@@ -53,6 +53,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenChosen: 0
   title: 
-  statementText: There is desertification going on in fertile forests.
+  statementText: Because of the chopped trees, soil erosion is increasing.
   timeToDiscuss: 5
   score: 1

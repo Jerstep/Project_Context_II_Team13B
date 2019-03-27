@@ -6,19 +6,8 @@ using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
-    public Location[] locations;
-    Location currentLocation;
-    public GameObject canvas;
-    public Round round;
 
-    public GameObject locationWindow;
-    public GameObject statementWindow;
-    public GameObject[] UI_Choise;
-    public GameObject roundWindow;
 
-    bool locationActive = false;
-    bool roundActive = false;
-    public bool roundFinished = false;
 
     //	void Start ()
     //    {

@@ -18,6 +18,7 @@ public class PlayerManager : MonoBehaviour
     public List<int> charIndex;
     public GameObject[] characters;
     public List<GameObject> players;
+    public List<Player> playersScripts;
 
     private static PlayerManager manager;
     public PlayerDestinations playerDes;
@@ -37,7 +38,8 @@ public class PlayerManager : MonoBehaviour
 
         SpawnPlayerCharacters spawnPlayers = GameObject.Find("GameManager").GetComponent<SpawnPlayerCharacters>();
         playerDes = GameObject.Find("GameManager").GetComponent<PlayerDestinations>();
-        gameMasterScript = GetComponent<GameMasterScript>();
+        gameMasterScript = GameObject.Find("GameManager").GetComponent<GameMasterScript>();
+        scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
         gameMasterScript.activePlayerCharacters = charIndex;
         scoreManager.charIndex = charIndex;
 
@@ -48,6 +50,7 @@ public class PlayerManager : MonoBehaviour
                 if(charIndex[i] == e)
                 {
                     spawnPlayers.SpawnCharacters(characters[i]);
+                    playersScripts.Add(characters[i].GetComponent<Player>());
                 }
             }
 
@@ -56,6 +59,7 @@ public class PlayerManager : MonoBehaviour
                 players = spawnPlayers.characters;
                 playerDes.characters = players;
                 cam.players = players;
+                gameMasterScript.activePlayers = playersScripts;
             }
         }
     }

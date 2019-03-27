@@ -9,27 +9,25 @@ public class Player : MonoBehaviour
     public NavMeshAgent agent;
 
     public bool isChairman = false;
-    private string charName;
-    public TMP_Text text;
     public int score = 0;
+
+    public GameObject chair;
 
     private void Start()
     {
-        charName = text.text;
-        SetChairman("Chariman");
         agent = this.GetComponent<NavMeshAgent>();
     }
 
-    public void SetChairman(string chairman)
+    public void SetChairman()
     {
-        if(isChairman)
-        {
-            text.text = charName + " " + chairman;
-        }
-        else
-        {
-            text.text = charName;
-        }
+        isChairman = true;
+        chair.SetActive(isChairman);
+    }
+
+    public void UnsetChairman()
+    {
+        isChairman = false;
+        chair.SetActive(isChairman);
     }
 
     public void SetDestinationForAgent(Vector3 target)

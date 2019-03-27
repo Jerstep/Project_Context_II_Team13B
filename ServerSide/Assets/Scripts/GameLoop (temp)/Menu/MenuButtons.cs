@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuButtons : MonoBehaviour
 {
     public GameObject charSelectMenu;
+    public GameObject intro;
     public GameObject mainMenu;
 
     bool mainMenuActive = true;
@@ -13,14 +14,20 @@ public class MenuButtons : MonoBehaviour
     public void StartButton()
     {
         mainMenuActive = !mainMenuActive;
-        CharMenuActive = !CharMenuActive;
-        charSelectMenu.SetActive(CharMenuActive);
         mainMenu.SetActive(mainMenuActive);
+        intro.SetActive(true);
     }
 
     public void OptionsButton()
     {
         Debug.Log("Options Button Pressed!!");
+    }
+
+    public void ContinueButton()
+    {
+        CharMenuActive = !CharMenuActive;
+        charSelectMenu.SetActive(CharMenuActive);
+        Debug.Log("Continue Button Pressed!!");
     }
 
     public void ExitButton()

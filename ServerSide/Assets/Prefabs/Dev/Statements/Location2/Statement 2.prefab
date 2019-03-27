@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenChosen: 0
   title: 
-  statementText: Water bodies becomes dry because of the chopped trees
+  statementText: 'The percentage of oxygen in the air has decreased heavily in these
+    last couple of months. Has somebody been breathing extra heavily? '
   timeToDiscuss: 2
   score: 1

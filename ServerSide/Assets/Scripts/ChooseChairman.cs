@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChooseChairman : MonoBehaviour
+public class ChooseChairman
 {
     int previousIndex;
 
@@ -13,7 +13,7 @@ public class ChooseChairman : MonoBehaviour
 
         if(!players[chairmanIndex].isChairman)
         {
-            players[chairmanIndex].isChairman = true;
+            players[chairmanIndex].SetChairman();
         }
     }
 
@@ -33,7 +33,7 @@ public class ChooseChairman : MonoBehaviour
         {
             if(players[i].isChairman)
             {
-                players[i].isChairman = false;
+                players[i].UnsetChairman();
                 break;
             }
         }

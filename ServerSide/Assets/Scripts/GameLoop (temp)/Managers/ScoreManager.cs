@@ -1,23 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
 
-    // Needs UI elements for all participating Chars.
-    // Use vertival UI Layout Group for spacing ( is easyest )
-    // Get the score from the current statement send to a method to save.
-    // Assign to char that won ( Needs to be in gamemaster part.
-    // Can also simply be a + and - button for every char.
-    // Show diffrent UI to GameMaster ( same but then with the + and -
-
-    // After Confirm open the location window again :)
-
+    /* 
+     Index Characters:
+        - Bee = [0]
+        - Duck = [1]
+        - Human = [2]
+        - lion = [3]
+        - Monkey = [4]
+        - Shark = [5]
+    */
 
     public List<int> charIndex;
     public GameObject scoreScreen;
     public GameObject gameMasterScoreScreen;
     public GameObject[] playerScoreSliders;
+    public GameObject[] gameMasterScoreButtons;
 
     private bool active = false;
 
@@ -26,19 +28,57 @@ public class ScoreManager : MonoBehaviour {
     {
         scoreScreen.SetActive(!active);
         gameMasterScoreScreen.SetActive(!active);
+        SetSlidersActive();
     }
 
     public void SetSlidersActive()
     {
+        for(int i = 0; i < charIndex.Count; i++)
+        {
+            for(int e = 0; e < playerScoreSliders.Length; e++)
+            {
+                if(charIndex[i] == e)
+                {
+                    playerScoreSliders[i].SetActive(true);
+                    gameMasterScoreButtons[i].SetActive(true);
+                }
+            }
+        }
+
+        //for(int i = 0; i < playerScoreSliders.Length; i++)
+        //{
+        //    Debug.Log(charIndex[i]);
+        //    if(charIndex[i] == i)
+        //    {
+        //        playerScoreSliders[i].SetActive(true);
+        //        gameMasterScoreButtons[i].SetActive(true);
+        //    }
+        //}
+    }
+
+    public void AddScore(int index, float score)
+    {
         for(int i = 0; i < playerScoreSliders.Length; i++)
         {
-            if(charIndex[i] == i)
+            if(index == i)
             {
-                playerScoreSliders[i].SetActive(true);
+                if(playerScoreSliders[i].GetComponent<Slider>().value < 1)
+                {
+                    playerScoreSliders[i].GetComponent<Slider>().value += score;
+                }
             }
-            else
+        }
+    }
+    public void SubtractScore(int index, float score)
+    {
+        for(int i = 0; i < playerScoreSliders.Length; i++)
+        {
+            if(index == i)
             {
-                playerScoreSliders[i].SetActive(false);
+                if(playerScoreSliders[i].GetComponent<Slider>().value > 0)
+                {
+                    playerScoreSliders[i].GetComponent<Slider>().value -= score;
+                }
             }
         }
     }
