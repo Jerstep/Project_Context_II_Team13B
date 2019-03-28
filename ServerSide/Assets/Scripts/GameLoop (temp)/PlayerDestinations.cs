@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerDestinations : MonoBehaviour {
 
@@ -15,8 +16,8 @@ public class PlayerDestinations : MonoBehaviour {
         {
             for(int i = 0; i < characters.Count; i++)
             {
-                //characters[i].GetComponent<Player>().SetDestinationForAgent(arrival[i]);
-                characters[i].gameObject.transform.position = arrival[i];
+                characters[i].GetComponent<NavMeshAgent>().Warp(arrival[i]);
+                //characters[i].gameObject.transform.position = arrival[i];
             }
         }
     }
@@ -26,7 +27,7 @@ public class PlayerDestinations : MonoBehaviour {
         if(characters != null)
         {
             for(int i = 0; i < characters.Count; i++)
-            {
+            {                
                 characters[i].GetComponent<Player>().SetDestinationForAgent(destinations[i]);
             }
         }

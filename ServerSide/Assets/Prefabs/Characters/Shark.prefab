@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4249519456334046}
   - component: {fileID: 33083247821146186}
   - component: {fileID: 23424239544814432}
-  - component: {fileID: 95841442179941652}
+  - component: {fileID: 111295172399859938}
   m_Layer: 0
   m_Name: CrownModel
   m_TagString: Untagged
@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 4875198197886924}
   - component: {fileID: 114303688546050604}
   - component: {fileID: 195528495491100160}
+  - component: {fileID: 114914537545640814}
   m_Layer: 0
   m_Name: Shark
   m_TagString: Untagged
@@ -124,15 +125,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1684593470773830}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -230.92606, y: 0, z: -13.852535}
+  m_LocalRotation: {x: -0, y: 0.9729274, z: -0, w: 0.23111126}
+  m_LocalPosition: {x: 0.46383706, y: 0.02, z: 0.49452516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4104257693816124}
   - {fileID: 4178319845506216}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 72.901, z: 0}
 --- !u!23 &23256942531940252
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -219,24 +220,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1978349416198270}
   m_Mesh: {fileID: 4300000, guid: 20bdd7afa4e8e5649a4c7d8ad35af2a7, type: 3}
---- !u!95 &95841442179941652
-Animator:
-  serializedVersion: 3
+--- !u!111 &111295172399859938
+Animation:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1425876400562256}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d938c6078a7a33948a4351ce29c77e4a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: da6cde94b151f9a43975455ceb45ffb8, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114303688546050604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,9 +247,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 195528495491100160}
   isChairman: 0
-  text: {fileID: 0}
   score: 0
   chair: {fileID: 1094641521507502}
+--- !u!114 &114914537545640814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1684593470773830}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c8825d081b79a4980c0bdf61887eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.6428571
+      outSlope: 0.6428571
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.175
+    - serializedVersion: 3
+      time: 1
+      value: 0.006248474
+      inSlope: -0.48980337
+      outSlope: -0.48980337
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20416665
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!195 &195528495491100160
 NavMeshAgent:
   m_ObjectHideFlags: 1

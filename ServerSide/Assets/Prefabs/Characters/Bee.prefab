@@ -25,7 +25,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1354083208927126
 GameObject:
   m_ObjectHideFlags: 1
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4878069798432358}
   - component: {fileID: 33187938821325792}
   - component: {fileID: 23315871245500912}
-  - component: {fileID: 95782352723810776}
+  - component: {fileID: 111931753800095962}
   m_Layer: 0
   m_Name: CrownModel
   m_TagString: Untagged
@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 4016277360870678}
   - component: {fileID: 114781685112721572}
   - component: {fileID: 195159372538632496}
+  - component: {fileID: 114867675977717758}
   m_Layer: 0
   m_Name: Bee
   m_TagString: Untagged
@@ -84,15 +85,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1691504827693838}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -233.1352, y: 0.03954084, z: -14.232513}
+  m_LocalRotation: {x: -0, y: 0.9774851, z: -0, w: -0.21100417}
+  m_LocalPosition: {x: 1.4344265, y: 0.02, z: 0.27371728}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4377497382537784}
   - {fileID: 4594355176043482}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 123.989006, z: 0}
 --- !u!4 &4377497382537784
 Transform:
   m_ObjectHideFlags: 1
@@ -223,24 +224,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354083208927126}
   m_Mesh: {fileID: 4300000, guid: 9c8ed12faad354446a54db763979699b, type: 3}
---- !u!95 &95782352723810776
-Animator:
-  serializedVersion: 3
+--- !u!111 &111931753800095962
+Animation:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354083208927126}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d938c6078a7a33948a4351ce29c77e4a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: da6cde94b151f9a43975455ceb45ffb8, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114781685112721572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,10 +250,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 195159372538632496}
-  isChairman: 0
-  text: {fileID: 0}
+  isChairman: 1
   score: 0
   chair: {fileID: 1141788393403946}
+--- !u!114 &114867675977717758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1691504827693838}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c8825d081b79a4980c0bdf61887eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.6428571
+      outSlope: 0.6428571
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.175
+    - serializedVersion: 3
+      time: 1
+      value: 0.006248474
+      inSlope: -0.48980337
+      outSlope: -0.48980337
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20416665
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!195 &195159372538632496
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -265,7 +296,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1691504827693838}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

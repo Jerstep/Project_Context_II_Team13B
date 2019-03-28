@@ -51,9 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2341d33cb92ff246b292119aa9dc21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBeenChosen: 0
+  hasBeenChosen: 1
   title: 
   statementText: These vegetation used to be a food source for some animals but that
     is no longer
-  timeToDiscuss: 2
+  timeToDiscuss: 5
   score: 1

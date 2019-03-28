@@ -55,5 +55,5 @@ MonoBehaviour:
   title: 
   statementText: 'These vegetation appear to be less green as they used to do. Food
     colouring will not do, they have tried it before. '
-  timeToDiscuss: 3
+  timeToDiscuss: 5
   score: 1

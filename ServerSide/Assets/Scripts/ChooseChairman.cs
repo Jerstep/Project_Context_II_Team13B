@@ -2,14 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChooseChairman
+public class ChooseChairman : MonoBehaviour
 {
-    int previousIndex;
+    int chairmanIndex;
 
     public void AssignChairman(List<Player> players)
     {
-        int chairmanIndex = RandomIndex(players.Count, previousIndex);
-        previousIndex = chairmanIndex;
+        UnassignChairman(players);
+
+        if(chairmanIndex < players.Count - 1)
+        {
+            chairmanIndex++;
+        }
+        else
+        {
+            chairmanIndex = 0;
+        }
+
+        Debug.Log(chairmanIndex);
+        Debug.Log(players[chairmanIndex].name);
 
         if(!players[chairmanIndex].isChairman)
         {
@@ -17,15 +28,15 @@ public class ChooseChairman
         }
     }
 
-    public int RandomIndex(int listSize, int prevIndex)
-    {
-        int chairmanIndex = Random.Range(0, listSize);
-        if(chairmanIndex != previousIndex)
-        {
-            return chairmanIndex;
-        }
-        return Random.Range(0, listSize);
-    }
+    //private int RandomIndex(int listSize, int prevIndex)
+    //{
+    //    int chairmanIndex = Random.Range(0, listSize);
+    //    if(chairmanIndex != previousIndex)
+    //    {
+    //        return chairmanIndex;
+    //    }
+    //    return Random.Range(0, listSize);
+    //}
 
     public void UnassignChairman(List<Player> players)
     {

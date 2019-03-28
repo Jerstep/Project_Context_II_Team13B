@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1602307654951306}
+  m_RootGameObject: {fileID: 1547146736965592}
   m_IsPrefabAsset: 1
---- !u!1 &1602307654951306
+--- !u!1 &1547146736965592
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4516639400445958}
-  - component: {fileID: 114460791085332344}
+  - component: {fileID: 4467608889109564}
+  - component: {fileID: 114035559324146100}
   m_Layer: 0
   m_Name: Statement 6
   m_TagString: Untagged
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4516639400445958
+--- !u!4 &4467608889109564
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1602307654951306}
+  m_GameObject: {fileID: 1547146736965592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -52.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,12 +40,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114460791085332344
+--- !u!114 &114035559324146100
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1602307654951306}
+  m_GameObject: {fileID: 1547146736965592}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2341d33cb92ff246b292119aa9dc21f, type: 3}
@@ -53,7 +53,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenChosen: 0
   title: 
-  statementText: Many water plants who live under water are endangered and no, planting
-    them on land is not an option.
+  statementText: 'There is desertification going on in fertile forests. '
   timeToDiscuss: 60
   score: 1

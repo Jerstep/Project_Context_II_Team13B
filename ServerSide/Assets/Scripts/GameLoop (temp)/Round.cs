@@ -21,6 +21,8 @@ public class Round : MonoBehaviour
     public float timeIsUpTime;
     public Statement statement;
 
+    public AudioSource ac;
+
     public void CurrentStatement(Statement statement)
     {
         roundActive = true;
@@ -39,6 +41,7 @@ public class Round : MonoBehaviour
         UI_Statement.GetComponentInChildren<TMP_Text>().text = statement.statementText;
 
         roundTime = statement.timeToDiscuss;
+        //Debug.Log(roundTime);
         statement.hasBeenChosen = true;
     }
 
@@ -62,6 +65,8 @@ public class Round : MonoBehaviour
             UI_Statement.SetActive(false);
             timer.SetActive(false);
             roundActive = false;
+
+            ac.Play();
         }
     }
 }

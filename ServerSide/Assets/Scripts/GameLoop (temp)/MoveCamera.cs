@@ -8,6 +8,11 @@ public class MoveCamera : MonoBehaviour
     private Vector3 startPos;
     public Camera cam;
 
+    public float offsetX;
+    public float offsetY;
+    public float offsetZ;
+
+
     private void Start()
     {
         cam = GetComponent<Camera>();
@@ -37,7 +42,7 @@ public class MoveCamera : MonoBehaviour
 
             //take average:
             middle /= numPlayers;
-            cam.transform.position = new Vector3(middle.x + startPos.x, transform.position.y, middle.z + startPos.z);
+            cam.transform.position = new Vector3(middle.x + offsetX, transform.position.y, middle.z + offsetZ);
         }
     }
 

@@ -42,7 +42,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1431804632079976
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 4559910511952722}
   - component: {fileID: 114158504662138960}
   - component: {fileID: 195223865705638932}
+  - component: {fileID: 114050162819312610}
   m_Layer: 0
   m_Name: Human
   m_TagString: Untagged
@@ -102,7 +103,7 @@ GameObject:
   - component: {fileID: 4101442639157792}
   - component: {fileID: 33768110985452766}
   - component: {fileID: 23908501956045812}
-  - component: {fileID: 95250354500642704}
+  - component: {fileID: 111038636577538504}
   m_Layer: 0
   m_Name: CrownModel
   m_TagString: Untagged
@@ -156,15 +157,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1431804632079976}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -232.14777, y: 0.03954084, z: -14.03696}
+  m_LocalRotation: {x: -0, y: 0.999258, z: -0, w: 0.038517803}
+  m_LocalPosition: {x: 1.254767, y: 0.02, z: 0.43595874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4400291740663334}
   - {fileID: 4561802406790596}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 95.211006, z: 0}
 --- !u!4 &4561802406790596
 Transform:
   m_ObjectHideFlags: 1
@@ -327,24 +328,55 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977147662610038}
   m_Mesh: {fileID: 4300000, guid: 9c8ed12faad354446a54db763979699b, type: 3}
---- !u!95 &95250354500642704
-Animator:
-  serializedVersion: 3
+--- !u!111 &111038636577538504
+Animation:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977147662610038}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d938c6078a7a33948a4351ce29c77e4a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: da6cde94b151f9a43975455ceb45ffb8, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &114050162819312610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431804632079976}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c8825d081b79a4980c0bdf61887eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.6428571
+      outSlope: 0.6428571
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.175
+    - serializedVersion: 3
+      time: 1
+      value: 0.006248474
+      inSlope: -0.48980337
+      outSlope: -0.48980337
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20416665
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114158504662138960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -357,8 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 195223865705638932}
-  isChairman: 0
-  text: {fileID: 0}
+  isChairman: 1
   score: 0
   chair: {fileID: 1390730255956008}
 --- !u!195 &195223865705638932
@@ -369,7 +400,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1431804632079976}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

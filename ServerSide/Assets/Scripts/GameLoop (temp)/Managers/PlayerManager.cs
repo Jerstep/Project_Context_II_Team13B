@@ -21,9 +21,11 @@ public class PlayerManager : MonoBehaviour
     public List<Player> playersScripts;
 
     private static PlayerManager manager;
-    public PlayerDestinations playerDes;
-    public GameMasterScript gameMasterScript;
-    public ScoreManager scoreManager;
+    private PlayerDestinations playerDes;
+    private GameMasterScript gameMasterScript;
+    private ScoreManager scoreManager;
+    private SpawnPlayerCharacters spawnPlayers;
+    private ChooseChairman chooseChairman;
 
     public MoveCamera cam;
 
@@ -36,21 +38,32 @@ public class PlayerManager : MonoBehaviour
     {
         cam = GameObject.Find("MainCamera").GetComponent<MoveCamera>();
 
-        SpawnPlayerCharacters spawnPlayers = GameObject.Find("GameManager").GetComponent<SpawnPlayerCharacters>();
-        playerDes = GameObject.Find("GameManager").GetComponent<PlayerDestinations>();
-        gameMasterScript = GameObject.Find("GameManager").GetComponent<GameMasterScript>();
-        scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
+        GameObject gm = GameObject.Find("GameManager");
+
+        spawnPlayers = gm.GetComponent<SpawnPlayerCharacters>();
+        playerDes = gm.GetComponent<PlayerDestinations>();
+        gameMasterScript = gm.GetComponent<GameMasterScript>();
+        scoreManager = gm.GetComponent<ScoreManager>();
+        chooseChairman = gm.GetComponent<ChooseChairman>();
+
+        SetPlayerChars();
+
+        chooseChairman.AssignChairman(playersScripts);
         gameMasterScript.activePlayerCharacters = charIndex;
         scoreManager.charIndex = charIndex;
+    }
 
-        for(int i = 0; i < charIndex.Count; i++)
+    void SetPlayerChars()
+    {
+        for(int i = 0; i < characters.Length; i++)
         {
-            for(int e = 0; e < characters.Length; e++)
+            for(int e = 0; e < charIndex.Count; e++)
             {
-                if(charIndex[i] == e)
+                if(charIndex[e] == i)
                 {
-                    spawnPlayers.SpawnCharacters(characters[i]);
-                    playersScripts.Add(characters[i].GetComponent<Player>());
+                    //Debug.Log(characters[charIndex[e]].name);
+                    spawnPlayers.SpawnCharacters(characters[charIndex[e]]);
+                    playersScripts.Add(characters[charIndex[e]].GetComponent<Player>());
                 }
             }
 
@@ -63,18 +76,4 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-
-    // DEBUG TEST CHAR LIST!!
-    //public void charIndexUpdate()
-    //{
-    //    for(int i = 0; i < charIndex.Count; i++)
-    //    {
-    //        Debug.Log("Character Index in list: " + charIndex[i]);
-    //    }
-
-    //    if(charIndex.Count == 0)
-    //    {
-    //        Debug.Log("Empty");
-    //    }
-    //}
 }
