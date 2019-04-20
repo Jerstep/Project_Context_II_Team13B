@@ -116,6 +116,7 @@ public class WindowManager : MonoBehaviour
         yield return new WaitForSeconds(statementTransitionTime);
 
         roundWindow.SetActive(true);
+        //round.UI_Statement.SetActive(true);
         roundActive = true;
     }
 

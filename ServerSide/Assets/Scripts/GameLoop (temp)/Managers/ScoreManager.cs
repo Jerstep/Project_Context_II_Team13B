@@ -37,10 +37,11 @@ public class ScoreManager : MonoBehaviour {
         {
             for(int e = 0; e < playerScoreSliders.Length; e++)
             {
-                if(charIndex[i] == e)
+                if(charIndex.Contains(e))
                 {
-                    playerScoreSliders[i].SetActive(true);
-                    gameMasterScoreButtons[i].SetActive(true);
+                    Debug.Log(i);
+                    playerScoreSliders[e].SetActive(true);
+                    gameMasterScoreButtons[e].SetActive(true);
                 }
             }
         }

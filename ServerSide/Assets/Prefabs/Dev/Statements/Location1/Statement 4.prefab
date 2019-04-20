@@ -51,9 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2341d33cb92ff246b292119aa9dc21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBeenChosen: 0
+  hasBeenChosen: 1
   title: 
   statementText: 'Landslides occur more often. Unfortunately they are not as fun as
     the slides you see in the parks.  '
-  timeToDiscuss: 60
-  score: 1
+  timeToDiscuss: 5

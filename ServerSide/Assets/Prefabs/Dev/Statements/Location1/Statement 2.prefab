@@ -51,9 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2341d33cb92ff246b292119aa9dc21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBeenChosen: 0
+  hasBeenChosen: 1
   title: 
   statementText: 'The percentage of oxygen in the air has decreased heavily in these
     last couple of months. Has somebody been breathing extra heavily? '
-  timeToDiscuss: 60
-  score: 1
+  timeToDiscuss: 5

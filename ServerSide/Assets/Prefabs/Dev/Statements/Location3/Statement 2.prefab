@@ -55,5 +55,5 @@ MonoBehaviour:
   title: 
   statementText: These vegetation used to be a food source for some animals but that
     is no longer
-  timeToDiscuss: 5
+  timeToDiscuss: 60
   score: 1

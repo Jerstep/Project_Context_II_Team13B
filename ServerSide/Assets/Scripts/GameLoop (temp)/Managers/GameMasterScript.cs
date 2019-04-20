@@ -25,6 +25,7 @@ public class GameMasterScript : MonoBehaviour
     public ChooseChairman chooseChairman;
     public Round round;
     public MoveCamera moveCamera;
+    public SpawnPlayerCharacters spawnPlayers;
 
     public List<int> activePlayerCharacters;
     public List<Player> activePlayers;
@@ -62,6 +63,7 @@ public class GameMasterScript : MonoBehaviour
         StartCoroutine(OpenWIthDelay(windowManager.locationWindow));
 
         StartCoroutine(CloseWIthDelay(scoreManager.scoreScreen));
+        StartCoroutine(CloseWIthDelay(scoreManager.gameMasterScoreScreen));
 
         StartCoroutine(CloseWIthDelay(timesUp));
         StartCoroutine(CloseWIthDelay(roundWindow));
@@ -71,10 +73,21 @@ public class GameMasterScript : MonoBehaviour
         round.roundActive = false;
     }
 
+
+    public List<Player> GetPlayerScripts()
+    {
+        List<Player> playerList = new List<Player>();
+        for(int i = 0; i < spawnPlayers.characters.Count; i++)
+        {
+            playerList.Add(spawnPlayers.characters[i].GetComponent<Player>());
+        }
+        return playerList;
+    }
+
     public void AssignCharimanButton()
     {
-        chooseChairman.UnassignChairman(activePlayers);
-        chooseChairman.AssignChairman(activePlayers);
+        //chooseChairman.UnassignChairman(activePlayers);
+        chooseChairman.AssignChairman(GetPlayerScripts());
     }
 
     public void AddButtonPressed(int charIndex)

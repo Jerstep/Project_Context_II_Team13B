@@ -18,16 +18,28 @@ public class Player : MonoBehaviour
         agent = this.GetComponent<NavMeshAgent>();
     }
 
+    private void Update()
+    {
+        if(isChairman)
+        {
+            chair.SetActive(true);
+        }
+        else
+        {
+            chair.SetActive(false);
+        }
+    }
+
     public void SetChairman()
     {
         isChairman = true;
-        chair.SetActive(isChairman);
+        chair.SetActive(true);
     }
 
     public void UnsetChairman()
     {
         isChairman = false;
-        chair.SetActive(isChairman);
+        chair.SetActive(false);
     }
 
     public void SetDestinationForAgent(Vector3 target)

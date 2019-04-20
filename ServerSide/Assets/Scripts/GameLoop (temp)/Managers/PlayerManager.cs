@@ -47,8 +47,7 @@ public class PlayerManager : MonoBehaviour
         chooseChairman = gm.GetComponent<ChooseChairman>();
 
         SetPlayerChars();
-
-        chooseChairman.AssignChairman(playersScripts);
+        
         gameMasterScript.activePlayerCharacters = charIndex;
         scoreManager.charIndex = charIndex;
     }
@@ -75,5 +74,6 @@ public class PlayerManager : MonoBehaviour
                 gameMasterScript.activePlayers = playersScripts;
             }
         }
+        chooseChairman.AssignChairman(playersScripts);
     }
 }

@@ -55,5 +55,5 @@ MonoBehaviour:
   title: 
   statementText: 'The changes that the food chain is going through is influencing
     everybody. You will have to change your diet because of this! '
-  timeToDiscuss: 5
+  timeToDiscuss: 60
   score: 1

@@ -9,6 +9,7 @@ public class Statements : MonoBehaviour
     public GameObject[] buttons;
     private int amountInactive = 0;
     public bool allStatementsDone = false;
+    int randomIndex;
 
 
     //private void Start()
@@ -22,38 +23,49 @@ public class Statements : MonoBehaviour
 
     public Statement ChooseRandomStatement()
     {
-        //for(int i = 0; i < statements.Length; i++)
-        //{
-        //    if(statements[i].hasBeenChosen)
-        //    {
-        //        amountInactive++;
-        //    }
-
-        //    if(amountInactive == statements.Length)
-        //    {
-        //        allStatementsDone = true;
-        //    }
-        //}
-
-        return statements[CheckStatements()];
+        if(randomIndex < statements.Length)
+        {
+            randomIndex++;
+        }
+        else
+        {
+            randomIndex = 0;
+        }
+        return statements[randomIndex];
     }
 
-    private int CheckStatements()
+    //private void CheckStatements()
+    //{
+    //    bool foundOpenStatement = false;
+    //    int randomIndex = Random.Range(0,statements.Length);
+
+    //    while(foundOpenStatement == false)
+    //    {
+    //        randomIndex = Random.Range(0, statements.Length);
+    //        if(statements[randomIndex].hasBeenChosen == false)
+    //        {
+    //            return randomIndex;
+    //        }
+    //    }
+    //    return randomIndex;
+    //}
+
+    IEnumerator CheckStateStatur()
     {
+        int correctIndex;
+
         bool foundOpenStatement = false;
-        int randomIndex = Random.Range(0,statements.Length);
+        int randomIndex = Random.Range(0, statements.Length);
 
         while(foundOpenStatement == false)
         {
             randomIndex = Random.Range(0, statements.Length);
             if(statements[randomIndex].hasBeenChosen == false)
             {
-                return randomIndex;
+                correctIndex = randomIndex;
             }
         }
-
-        return randomIndex;
+        yield return null;
     }
-
 
 }

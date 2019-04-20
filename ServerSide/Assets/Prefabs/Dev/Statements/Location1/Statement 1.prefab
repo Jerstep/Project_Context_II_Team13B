@@ -55,5 +55,4 @@ MonoBehaviour:
   title: 
   statementText: 'Lots of animals who used to live on these trees do not have a home
     anymore. '
-  timeToDiscuss: 60
-  score: 1
+  timeToDiscuss: 5

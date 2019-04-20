@@ -9,6 +9,4 @@ public class Statement : MonoBehaviour
     public string title;
     public string statementText;
     public float timeToDiscuss;
-
-    public int score;
 }

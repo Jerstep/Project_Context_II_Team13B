@@ -54,5 +54,4 @@ MonoBehaviour:
   hasBeenChosen: 0
   title: 
   statementText: 'There is desertification going on in fertile forests. '
-  timeToDiscuss: 60
-  score: 1
+  timeToDiscuss: 5

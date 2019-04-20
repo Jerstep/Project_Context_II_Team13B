@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4205203067984450}
   m_Layer: 0
-  m_Name: Crown (2)
+  m_Name: Crown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5e612ce7ad150174ea420682ca6c4eaf, type: 2}
+  - {fileID: 2100000, guid: 54c0eb8a598988d48881cd9a8d79739a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -333,7 +333,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1542161200082818}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.3
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

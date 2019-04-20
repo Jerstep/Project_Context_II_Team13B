@@ -26,6 +26,7 @@ public class Round : MonoBehaviour
     public void CurrentStatement(Statement statement)
     {
         roundActive = true;
+        UI_Statement.SetActive(true);
 
         if(statement.title != "")
         {
